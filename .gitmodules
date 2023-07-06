@@ -1,0 +1,3 @@
+[submodule "packages/nvchad"]
+	path = packages/nvchad
+	url = https://github.com/NvChad/NvChad.git

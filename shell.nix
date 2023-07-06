@@ -13,6 +13,7 @@
 
     programs.less.enable = true;
     programs.zsh.enable = true;
+    programs.zsh.syntaxHighlighting.enable = true;
 
     # Use nix-index' better command-not-found
     programs.command-not-found.enable = false;

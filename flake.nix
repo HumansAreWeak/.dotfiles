@@ -23,6 +23,8 @@
         ./shell.nix
         ./dev.nix
         ./myuser.nix
+
+        #./packages/nvchad.nix
       ];
     in {
       nixosConfigurations = {

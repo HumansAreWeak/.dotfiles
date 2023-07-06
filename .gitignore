@@ -3,3 +3,6 @@ result
 
 # Can be generated
 hardware-configuration.nix
+
+# Submodules folder
+packages/

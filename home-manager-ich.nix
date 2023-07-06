@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -8,12 +8,7 @@
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
-
-      plugins = with pkgs.vimPlugins; [
-        {
-          plugin = nvchad;
-        }
-      ];
+      extraConfig = lib.fileContents ./packages/nvchad/init.lua;
     };
 
     # Firefox
