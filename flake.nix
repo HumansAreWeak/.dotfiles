@@ -18,6 +18,7 @@
       };
       lib = nixpkgs.lib;
       commonModules = [
+        ./configuration.nix
         ./locale.nix
         ./shell.nix
         ./dev.nix
@@ -45,4 +46,3 @@
       };
     };
 }
-
