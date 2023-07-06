@@ -17,11 +17,23 @@
         config = { allowUnfree = true; };
       };
       lib = nixpkgs.lib;
+      commonModules = [
+        ./locale.nix
+        ./shell.nix
+        ./dev.nix
+        ./myuser.nix
+      ];
     in {
       nixosConfigurations = {
         ich = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = commonModules ++ [
+            ({ pkgs, ... }: { networking.hostName = "ich-nixos"; }) 
+            ./hardware.nix 
+            ./audio.nix
+            ./kde-desktop.nix
+            ./printer.nix
+          ];
         };
       };
       homeConfigurations.ich = home-manager.lib.homeManagerConfiguration {

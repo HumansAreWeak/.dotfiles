@@ -14,11 +14,7 @@ Then open the directory
 cd haw-flake
 ```
 
-Generate yourself a hardware configuration of your system and safe it into the current folder
-
-```
-nixos-generate-config --dir .
-```
+Change the ```hardware.nix``` according to your system's hardware. Additionally edit ```kde-desktop.nix``` for GPU settings, since I'm using Nvidia with Prime on.
 
 ## Reproduce NixOS
 
@@ -30,7 +26,7 @@ sudo nixos-rebuild switch --flake .#ich
 
 ## Reproduce Home-Manager
 
-To reproduce my development environment, use the following command
+To reproduce my development environment, use the following command's
 
 ```
 # Build
