@@ -1,2 +1,5 @@
 # Reference to resulting build
 result
+
+# Can be generated
+hardware-configuration.nix
