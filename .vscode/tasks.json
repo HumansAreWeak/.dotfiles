@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Home-Manager",
+            "type": "shell",
+            "command": "nix build .#homeConfigurations.ich.activationPackage"
+        },
+        {
+            "label": "Activate Home-Manager",
+            "type": "shell",
+            "command": "./result/activate"
+        },
+        {
+            "label": "Build & Activate Home-Manager",
+            "type": "shell",
+            "command": "nix build .#homeConfigurations.ich.activationPackage && ./result/activate"
+        },
+        {
+            "label": "Switch OS",
+            "type": "shell",
+            "command": "sudo nixos-rebuild switch --flake .#ich"
+        }
+    ]
+}
