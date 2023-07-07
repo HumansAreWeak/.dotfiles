@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, nur, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -8,7 +8,9 @@
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
-      extraConfig = lib.fileContents ./packages/nvchad/init.lua;
+
+      # Too bad Nix doesn't provide any support for git submodules... yet...
+      # extraConfig = lib.fileContents ./packages/nvchad/init.lua;
     };
 
     # Firefox
@@ -58,8 +60,18 @@
                 name = "MyNixOS";
                 url = "https://mynixos.com/";
               }
+              {
+                name = "NUR";
+                url = "https://nur.nix-community.org/";
+              }
             ];
           }
+        ];
+        extensions = with config.nur.repos.rycee.firefox-addons; [
+          duckduckgo-privacy-essentials
+          react-devtools
+          reduxdevtools
+          plasma-integration
         ];
         search.default = "DuckDuckGo";
         search.force = true;
@@ -73,6 +85,14 @@
       userEmail = "m.steiger@csurielektronics.com";
     };
 
+    # Zsh
+    zsh = {
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" "thefuck" "docker" "docker-compose" ];
+        theme = "awesomepanda";
+      };
+    };
   };
 
   # Home Manager needs a bit of information about you and the paths it should

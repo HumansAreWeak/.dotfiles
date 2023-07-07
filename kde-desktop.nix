@@ -80,12 +80,18 @@
     wineWowPackages.stable
   ];
 
-  nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
   networking.networkmanager = {
     enable = true;  # Easiest to use and most distros use this by default.
     unmanaged = [
       "vboxnet" "docker0" "docker1" "docker2"
     ];
+  };
+
+  networking.firewall = {
+    checkReversePath = false;
+    
+    # WireGuard Port
+    allowedUDPPorts = [ 25621 ];
   };
 
   hardware = {
@@ -95,8 +101,7 @@
       nvidiaPersistenced = true;
 
       prime = {
-        offload.enable = true;
-        offload.enableOffloadCmd = true;
+        sync.enable = true;
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
       };
@@ -106,6 +111,12 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+    };
+  };
+
+  specialisation = {
+    external-display.configuration = {
+      system.nixos.tags = [ "external-display" ];
     };
   };
 

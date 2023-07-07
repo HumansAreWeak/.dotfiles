@@ -6,3 +6,6 @@ hardware-configuration.nix
 
 # Submodules folder
 packages/
+
+# Environment specific stuff
+env/
