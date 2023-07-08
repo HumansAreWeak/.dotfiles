@@ -98,7 +98,6 @@
     nvidia = {
       modesetting.enable = true;
       nvidiaSettings = true;
-      nvidiaPersistenced = true;
 
       prime = {
         sync.enable = true;

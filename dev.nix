@@ -19,6 +19,7 @@
       man-pages
       nodejs
       gcc
+      ncurses
 
       wireguard-tools
     ];
